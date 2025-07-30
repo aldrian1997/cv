@@ -2,38 +2,81 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aldrian Loyola – eCommerce Virtual Assistant Resume</title>
   <style>
+    :root {
+      --bg-light: #ffffff;
+      --bg-dark: #1e1e1e;
+      --text-light: #333;
+      --text-dark: #eee;
+      --primary: #3f51b5;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      color: #333;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-light);
       line-height: 1.6;
-      max-width: 800px;
+      max-width: 900px;
       margin: auto;
       padding: 40px 20px;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
+
     h1, h2, h3 {
       margin-top: 30px;
-      color: #000;
+      color: var(--primary);
     }
+
     h1 {
-      font-size: 28px;
+      font-size: 32px;
     }
+
     h2 {
-      font-size: 20px;
-      border-bottom: 1px solid #ccc;
+      font-size: 22px;
+      border-bottom: 2px solid #ccc;
       padding-bottom: 5px;
     }
+
     ul {
       padding-left: 20px;
     }
+
     a {
-      color: #000;
+      color: var(--primary);
       text-decoration: none;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .download-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: #28a745;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      cursor: pointer;
+      border-radius: 4px;
     }
   </style>
 </head>
 <body>
+
+  <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+  <button class="download-btn" onclick="downloadPDF()">Download PDF</button>
 
   <h1>Aldrian Corpuz Loyola</h1>
   <p>Carmona, Makati City</p>
@@ -122,5 +165,22 @@
   Bachelor of Science in Entrepreneurship<br>
   Mandaluyong City, June 2015 – March 2019</p>
 
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const isDark = body.style.backgroundColor === 'var(--bg-dark)';
+      if (isDark) {
+        body.style.backgroundColor = 'var(--bg-light)';
+        body.style.color = 'var(--text-light)';
+      } else {
+        body.style.backgroundColor = 'var(--bg-dark)';
+        body.style.color = 'var(--text-dark)';
+      }
+    }
+
+    function downloadPDF() {
+      window.print();
+    }
+  </script>
 </body>
 </html>
